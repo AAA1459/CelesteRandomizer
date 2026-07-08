@@ -18,6 +18,8 @@ CSide:
 - <room description>
 ```
 
+To avoid some tedious startup cost when writing these configs, you can generate a skeleton config with the `rando_skeleton` console command.
+
 ## Rooms
 
 A room description contains the name of the room, a listing of all the Holes in the room (gaps in the level geometry through which the player could theoretically enter or exit) along with their properties. Additionally, it can contain Tweaks (modifications to the level data), Subrooms (room descriptions that allow you to partition some of the room as separate from the rest of the room) InternalEdges (relationships between subrooms), and Collectables (keys and berries). It may also contain a key called End, indicating whether this room can be used to end the level. Rooms with crystal hearts should be classified as level-ending.

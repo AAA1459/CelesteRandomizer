@@ -796,6 +796,9 @@ namespace Celeste.Mod.Randomizer
                             entity.Values["small"] = "true";
                         }
                         break;
+                    case "lightning":
+                        entity.Values["perLevel"] = "false";
+                        break;
                 }
 
                 foreach (var econfig in this.Tweaks)
@@ -962,7 +965,12 @@ namespace Celeste.Mod.Randomizer
                     }
                     if (econfig.Name.ToLower() == "spawn")
                     {
-                        result.Spawns.Add(new Vector2(econfig.Update.X.Value + result.Position.X, econfig.Update.Y.Value + result.Position.Y));
+                        var s = new Vector2(econfig.Update.X.Value + result.Position.X, econfig.Update.Y.Value + result.Position.Y);
+                        if (econfig.Update.Default) {
+                            result.Spawns.Insert(0, s);
+                        } else {
+                            result.Spawns.Add(s);
+                        }
                     }
                     else
                     {
